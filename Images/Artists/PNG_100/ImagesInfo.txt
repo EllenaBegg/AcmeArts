@@ -1,0 +1,3 @@
+Images of Artists
+Format: png
+Size: 100 wide
