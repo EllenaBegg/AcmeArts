@@ -1,0 +1,3 @@
+Images of Artists
+Format: gif
+Size: 100 wide
