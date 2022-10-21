@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="Low Kok Wei">    
-    <title>Index</title>
+    <title>All Artists</title>
 
 	<link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">        
     <!-- Custom styles for this template -->
@@ -41,7 +41,7 @@
 							  <h5 class="card-title">Artist : <?=$row['ArtistName']?></h5>
 							  <p class="card-text">Life Span : <?=$row['ArtistLifeSpan']?></p>
 							  <!-- Button to view full size image -->
-							  <a href="Painting.php?&title=<?=$row['Title']?>" class="btn btn-primary">View</a>
+							  <a href="OneArtist.php?&artistname=<?=$row['ArtistName']?>" class="btn btn-primary">View</a>
 							</div>
 						  </div>						  
 						</div>					
