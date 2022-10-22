@@ -24,10 +24,10 @@
   ?>
   	<main class="container">
 	  <div class="bg-light p-3 rounded">
-		<h1>Paintings</h1> 
+		<h1>Artists</h1> 
   <?php		
 			try {
-				$sql = "SELECT * FROM AllArtists";
+				$sql = "SELECT * FROM Artist";
 				$result = $pdo->query($sql);			
 				if ($result->rowCount()>0){
   ?>
@@ -39,7 +39,7 @@
 							<img class="card-img-top" src="data:image/png;base64, <?php echo base64_encode($row['ArtistThumbnail']); ?>" alt="Card image cap">
 							<div class="card-body">
 							  <h5 class="card-title">Artist : <?=$row['ArtistName']?></h5>
-							  <p class="card-text">Life Span : <?=$row['ArtistLifeSpan']?></p>
+							  <p class="card-text">Life Span : <?=$row['BornYear']."-".$row['DeathYear']?></p>
 							  <!-- Button to view full size image -->
 							  <a href="OneArtist.php?&artistname=<?=$row['ArtistName']?>" class="btn btn-primary">View</a>
 							</div>

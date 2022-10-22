@@ -38,8 +38,12 @@
 				  <a class="nav-link" href="Contact.php">Contact</a>
 				</li>
 			  </ul>
+                          <form action="OneArtist.php" class="d-flex" role="search">
+					<input class="form-control me-2" type="search" placeholder="Artist Search" aria-label="Search" name="artistname">
+					<button class="btn btn-outline-success" type="submit">Search</button>
+			  </form>
 			  <form action="Painting.php" class="d-flex" role="search">
-					<input class="form-control me-2" type="search" placeholder="Title Search" aria-label="Search" name="title">
+					<input class="form-control ms-2 me-2" type="search" placeholder="Title Search" aria-label="Search" name="title">
 					<button class="btn btn-outline-success" type="submit">Search</button>
 			  </form>
 			</div>

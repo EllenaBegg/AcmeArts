@@ -25,7 +25,7 @@
 		//Filter to remove tags and encode special characters
 		$artistname = filter_var($_GET['artistname'], FILTER_SANITIZE_STRING);
 		try {
-			$sql = "SELECT * FROM AllArtists where ArtistName = '$artistname'";
+			$sql = "SELECT * FROM Artist where ArtistName = '$artistname'";
 			$result = $pdo->query($sql);			
 		} catch(PDOException $e) {
 			die("ERROR: Could not able to execute $sql. " . $e->getMessage());
@@ -37,7 +37,7 @@
   ?>
   	<main class="container">
 	  <div class="bg-light p-3 rounded">
-		<h1>Painting</h1> 
+		<h1>Artist</h1> 
   <?php		
  			if ($result->rowCount()>0)
             {				
@@ -50,7 +50,7 @@
 						<img class="card-img-top" src="data:image/png;base64, <?php echo base64_encode($row['ArtistImage']); ?>" alt="Card image cap">
 						<div class="card-body">
 							<h5 class="card-title">Artist : <?=$row['ArtistName']?></h5>
-							<p class="card-text">Life Span : <?=$row['ArtistLifeSpan']?></p>
+							<p class="card-text">Life Span : <?=$row['BornYear']."-".$row['DeathYear']?></p>
 						</div>						  
 					</div>					
   <?php			
@@ -59,7 +59,7 @@
 			} else {
   ?>					
 				<div class="alert alert-warning " role="alert">				  				  
-					Painting title not found <?php echo $title;?> 
+					Artist name <?php echo $artistname;?> not found.
 				</div>
   <?php
 			}
