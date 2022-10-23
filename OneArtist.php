@@ -45,7 +45,7 @@
                     <div class="card-columns">
                         <div class="card">		
                             <!-- base64 encoding of image data from database -->
-                            <img class="card-img-top" src="data:image/png;base64, <?php echo base64_encode($row['ArtistImage']); ?>" alt="Card image cap">
+                            <img class="card-img-top" src="data:image/png;base64, <?php echo base64_encode($row['Image']); ?>" alt="Card image cap">
                             <div class="card-body">
                                 <h5 class="card-title">Artist : <?= $row['ArtistName'] ?></h5>
                                 <p class="card-text">Life Span : <?= $row['BornYear'] . "-" . $row['DeathYear'] ?></p>
