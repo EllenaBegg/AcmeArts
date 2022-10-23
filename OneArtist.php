@@ -49,20 +49,37 @@
                             <div class="card-body">
                                 <h5 class="card-title">Artist : <?= $row['ArtistName'] ?></h5>
                                 <p class="card-text">Life Span : <?= $row['BornYear'] . "-" . $row['DeathYear'] ?></p>
+                                <?php
+                                $Id = $row['Id'];
+                                try {
+                                    $sql = "SELECT DISTINCT(ArtStyle) FROM Style RIGHT JOIN Painting ON Style.Id = Painting.ArtStyleID  where ArtistId = $Id";
+                                    $result = $pdo->query($sql);
+                                    if ($result->rowCount() > 0) {
+                                        while ($row = $result->fetch()) {
+                                            ?>
+                                            <p class="card-text">Style : <?= $row['ArtStyle'] ?></p>
+                                            <?php
+                                        }
+                                        unset($result);
+                                    }
+                                } catch (PDOException $e) {
+                                    die("ERROR: Could not able to execute $sql. " . $e->getMessage());
+                                }
+                                ?>
                             </div>						  
                         </div>					
-    <?php
-    unset($result);
-    echo "</div>";
-} else {
-    ?>					
+                        <?php
+                        unset($result);
+                        echo "</div>";
+                    } else {
+                        ?>					
                         <div class="alert alert-warning " role="alert">				  				  
                             Artist name <?php echo $artistname; ?> not found.
                         </div>
-    <?php
-}
-include_once('include/db_close_pdo.php');
-?>
+                        <?php
+                    }
+                    include_once('include/db_close_pdo.php');
+                    ?>
                 </div>
         </main>  
         <script src="./bootstrap/js/bootstrap.bundle.min.js"></script>  
