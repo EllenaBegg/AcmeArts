@@ -33,7 +33,7 @@
                         </div>
                         <?php
                         try {
-                            $sql = "SELECT * FROM Artist";
+                            $sql = "SELECT * FROM Artist ORDER BY Id";
                             $result = $pdo->query($sql);
                             if ($result->rowCount() > 0) {
                                 // Fill the table with rows of Artist record
@@ -41,6 +41,7 @@
                                 <table class="table table-bordered table-striped">
                                     <thead>
                                         <tr>                                        
+                                            <th>Id</th>
                                             <th>Name</th>                                        
                                             <th>Year born</th>
                                             <th>Year death</th>
@@ -51,14 +52,15 @@
 
                                         <?php while ($row = $result->fetch()) { ?>
                                             <tr>
+                                                <td><?= $row['Id'] ?></td>
                                                 <td><?= $row['ArtistName'] ?></td>
                                                 <td><?= $row['BornYear'] ?></td>
                                                 <td><?= $row['DeathYear'] ?></td>
                                                 <td>                        
                                                     <!-- Button to update this artist -->
-                                                    <a href="UpdateArtist.php?&title=<?= $row['Title'] ?>" class="btn btn-secondary">Update</a>
+                                                    <a href="UpdateArtist.php?&artistname=<?= $row['ArtistName'] ?>" class="btn btn-secondary">Update</a>
                                                     <!-- Button to delete this artist -->
-                                                    <a href="DeleteArtist.php?&title=<?= $row['Title'] ?>" class="btn btn-secondary">Delete</a>
+                                                    <a href="DeleteArtist.php?&artistname=<?= $row['ArtistName'] ?>" class="btn btn-secondary">Delete</a>
                                                 </td>
                                             </tr>			
                                             <?php

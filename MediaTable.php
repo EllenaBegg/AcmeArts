@@ -33,14 +33,15 @@
                         </div>
                         <?php
                         try {
-                            $sql = "SELECT * FROM Media";
+                            $sql = "SELECT * FROM Media ORDER BY Id";
                             $result = $pdo->query($sql);
                             if ($result->rowCount() > 0) {
                                 // Fill the table with rows of Media record
                                 ?>						
                                 <table class="table table-bordered table-striped">
                                     <thead>
-                                        <tr>                                        
+                                        <tr>
+                                            <th>Id</th>
                                             <th>Medium</th> 
                                             <th>Record</th>
                                         </tr>
@@ -49,12 +50,13 @@
 
                                         <?php while ($row = $result->fetch()) { ?>
                                             <tr>
+                                                <td><?= $row['Id'] ?></td>
                                                 <td><?= $row['Medium'] ?></td>
                                                 <td>                        
                                                     <!-- Button to update this media -->
-                                                    <a href="UpdateMedia.php?&title=<?= $row['Title'] ?>" class="btn btn-secondary">Update</a>
+                                                    <a href="UpdateMedia.php?&medium=<?= $row['Medium'] ?>" class="btn btn-secondary">Update</a>
                                                     <!-- Button to delete this media -->
-                                                    <a href="DeleteMedia.php?&title=<?= $row['Title'] ?>" class="btn btn-secondary">Delete</a>
+                                                    <a href="DeleteMedia.php?&medium=<?= $row['Medium'] ?>" class="btn btn-secondary">Delete</a>
                                                 </td>
                                             </tr>			
                                             <?php

@@ -33,14 +33,15 @@
                         </div>
                         <?php
                         try {
-                            $sql = "SELECT * FROM Style";
+                            $sql = "SELECT * FROM Style ORDER BY Id";
                             $result = $pdo->query($sql);
                             if ($result->rowCount() > 0) {
                                 // Fill the table with rows of Style record
                                 ?>						
                                 <table class="table table-bordered table-striped">
                                     <thead>
-                                        <tr>                                        
+                                        <tr>
+                                            <th>Id</th>
                                             <th>Style</th>                                        
                                             <th>Record</th>
                                         </tr>
@@ -49,12 +50,13 @@
 
                                         <?php while ($row = $result->fetch()) { ?>
                                             <tr>
+                                                <td><?= $row['Id'] ?></td>
                                                 <td><?= $row['ArtStyle'] ?></td>
                                                 <td>                        
                                                     <!-- Button to update this style -->
-                                                    <a href="UpdateStyle.php?&title=<?= $row['Title'] ?>" class="btn btn-secondary">Update</a>
+                                                    <a href="UpdateStyle.php?&artstyle=<?= $row['ArtStyle'] ?>" class="btn btn-secondary">Update</a>
                                                     <!-- Button to delete this style -->
-                                                    <a href="DeleteStyle.php?&title=<?= $row['Title'] ?>" class="btn btn-secondary">Delete</a>
+                                                    <a href="DeleteStyle.php?&artstyle=<?= $row['ArtStyle'] ?>" class="btn btn-secondary">Delete</a>
                                                 </td>
                                             </tr>			
                                             <?php
